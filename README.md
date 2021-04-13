@@ -11,6 +11,9 @@ Nuxt.JS portage of the [Vue Material Kit](https://www.creative-tim.com/product/v
 # install dependencies
 $ npm install
 
+# init eslint (if needed)
+$ ./node_modules/.bin/eslint --init
+
 # serve with hot reload at localhost:3000
 $ npm run dev
 
