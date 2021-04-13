@@ -2,21 +2,24 @@
 
 > A Badass Nuxt.js UI Kit made with Material Design.
 
+Nuxt.JS portage of the [Vue Material Kit](https://www.creative-tim.com/product/vue-material-kit) made by [Creative Tim](https://www.creative-tim.com/).
+
+
 ## Build Setup
 
 ```bash
 # install dependencies
-$ yarn install
+$ npm install
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
+$ npm run dev
 
 # build for production and launch server
-$ yarn run build
-$ yarn start
+$ npm run build
+$ npm start
 
 # generate static project
-$ yarn run generate
+$ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
