@@ -96,7 +96,7 @@
                   <md-card class="md-card-plain">
                     <div class="md-layout-item md-size-50 mx-auto">
                       <img
-                        :src="teamImg1"
+                        :src="require('@/assets/img/faces/avatar.jpg')"
                         alt="Thumbnail Image"
                         class="img-raised rounded-circle img-fluid"
                       />
@@ -144,7 +144,7 @@
                   <md-card class="md-card-plain">
                     <div class="md-layout-item md-size-50 mx-auto">
                       <img
-                        :src="teamImg2"
+                        :src="require('@/assets/img/faces/christian.jpg')"
                         alt="Thumbnail Image"
                         class="img-raised rounded-circle img-fluid"
                       />
@@ -188,7 +188,7 @@
                   <md-card class="md-card-plain">
                     <div class="md-layout-item md-size-50 mx-auto">
                       <img
-                        :src="teamImg3"
+                        :src="require('@/assets/img/faces/kendall.jpg')"
                         alt="Thumbnail Image"
                         class="img-raised rounded-circle img-fluid"
                       />
@@ -285,19 +285,19 @@ export default {
   props: {
     header: {
       type: String,
-      default: require('@/assets/img/bg7.jpg'),
+      default: '',
     },
     teamImg1: {
       type: String,
-      default: require('@/assets/img/faces/avatar.jpg'),
+      default: '',
     },
     teamImg2: {
       type: String,
-      default: require('@/assets/img/faces/christian.jpg'),
+      default: '',
     },
     teamImg3: {
       type: String,
-      default: require('@/assets/img/faces/kendall.jpg'),
+      default: '',
     },
   },
   data() {
@@ -309,8 +309,12 @@ export default {
   },
   computed: {
     headerStyle() {
+      let result = '';
+
+      this.header != '' ? result = `url(${this.header})` : result = `url(${require('@/assets/img/bg7.jpg')})`;
+
       return {
-        backgroundImage: `url(${this.header})`,
+        backgroundImage: result,
       }
     },
   },

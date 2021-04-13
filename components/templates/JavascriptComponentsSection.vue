@@ -167,7 +167,7 @@
                     Somewhere Beyond, United States
                   </h4>
                 </div>
-                <img :src="carousel1" alt="carousel1" />
+                <img :src="require('@/assets/img/nature-2.jpg')" alt="carousel1" />
               </slide>
               <slide>
                 <div class="carousel-caption">
@@ -176,7 +176,7 @@
                     Yellowstone National Park, United States
                   </h4>
                 </div>
-                <img :src="carousel2" alt="carousel2" />
+                <img :src="require('@/assets/img/nature.jpg')" alt="carousel2" />
               </slide>
               <slide>
                 <div class="carousel-caption">
@@ -185,7 +185,7 @@
                     Yellowstone National Park, United States
                   </h4>
                 </div>
-                <img :src="carousel3" alt="carousel3" />
+                <img :src="require('@/assets/img/nature-3.jpg')" alt="carousel3" />
               </slide>
             </carousel>
           </md-card>
@@ -205,9 +205,6 @@ export default {
     return {
       classicModal: false,
       selectedDate: new Date('2018/03/26'),
-      carousel1: require('@/assets/img/nature-2.jpg'),
-      carousel2: require('@/assets/img/nature.jpg'),
-      carousel3: require('@/assets/img/nature-3.jpg'),
     }
   },
   methods: {

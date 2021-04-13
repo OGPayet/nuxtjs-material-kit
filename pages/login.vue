@@ -67,7 +67,7 @@ export default {
   props: {
     header: {
       type: String,
-      default: require('@/assets/img/profile_city.jpg'),
+      default: '',
     },
   },
   data() {
@@ -79,8 +79,12 @@ export default {
   },
   computed: {
     headerStyle() {
+      let result = '';
+
+      this.header != '' ? result = `url(${this.header})` : result = `url(${require('@/assets/img/profile_city.jpg')})`;
+      
       return {
-        backgroundImage: `url(${this.header})`,
+        backgroundImage: result,
       }
     },
   },

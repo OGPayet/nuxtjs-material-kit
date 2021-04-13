@@ -148,7 +148,7 @@
         >
           <h4>Rounded Image</h4>
           <img
-            :src="image"
+            :src="require('@/assets/img/faces/avatar.jpg')"
             alt="Rounded Image"
             class="rounded"
             :class="{ 'responsive-image': responsive }"
@@ -160,7 +160,7 @@
         >
           <h4>Circle Image</h4>
           <img
-            :src="image"
+            :src="require('@/assets/img/faces/avatar.jpg')"
             alt="Circle Image"
             class="rounded-circle"
             :class="{ 'responsive-image': responsive }"
@@ -172,7 +172,7 @@
         >
           <h4>Rounded Raised</h4>
           <img
-            :src="image"
+            :src="require('@/assets/img/faces/avatar.jpg')"
             alt="Raised Image"
             class="img-raised rounded"
             :class="{ 'responsive-image': responsive }"
@@ -184,7 +184,7 @@
         >
           <h4>Circle Raised</h4>
           <img
-            :src="image"
+            :src="require('@/assets/img/faces/avatar.jpg')"
             alt="Thumbnail Image"
             class="img-raised rounded-circle"
             :class="{ 'responsive-image': responsive }"
@@ -199,7 +199,6 @@
 export default {
   data() {
     return {
-      image: require('@/assets/img/faces/avatar.jpg'),
       responsive: false,
     }
   },

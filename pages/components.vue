@@ -4,10 +4,10 @@
       <div class="md-layout">
         <div class="md-layout-item">
           <div class="image-wrapper">
-            <img v-show="leafShow" :src="leaf4" alt="leaf4" class="leaf4" />
-            <img v-show="leafShow" :src="leaf3" alt="leaf3" class="leaf3" />
-            <img v-show="leafShow" :src="leaf2" alt="leaf2" class="leaf2" />
-            <img v-show="leafShow" :src="leaf1" alt="leaf1" class="leaf1" />
+            <img v-show="leafShow" :src="require('@/assets/img/leaf4.png')" alt="leaf4" class="leaf4" />
+            <img v-show="leafShow" :src="require('@/assets/img/leaf3.png')" alt="leaf3" class="leaf3" />
+            <img v-show="leafShow" :src="require('@/assets/img/leaf2.png')" alt="leaf2" class="leaf2" />
+            <img v-show="leafShow" :src="require('@/assets/img/leaf1.png')" alt="leaf1" class="leaf1" />
             <div class="brand">
               <h1>Nuxt Material Kit</h1>
               <h3>A Badass Nuxt.js UI Kit made with Material Design.</h3>
@@ -142,7 +142,7 @@
             <div class="md-layout-item">
               <a href="#/landing" target="_blank">
                 <img
-                  :src="landing"
+                  :src="require('@/assets/img/landing.jpg')"
                   alt="Rounded Image"
                   class="img-raised rounded img-fluid"
                 />
@@ -154,7 +154,7 @@
             <div class="md-layout-item">
               <a href="#/profile" target="_blank">
                 <img
-                  :src="profile"
+                  :src="require('@/assets/img/profile.jpg')"
                   alt="Rounded Image"
                   class="img-raised rounded img-fluid"
                 />
@@ -288,35 +288,35 @@ export default {
   props: {
     image: {
       type: String,
-      default: require('@/assets/img/vue-mk-header.jpg'),
+      default: '',
     },
     leaf4: {
       type: String,
-      default: require('@/assets/img/leaf4.png'),
+      default: '',
     },
     leaf3: {
       type: String,
-      default: require('@/assets/img/leaf3.png'),
+      default: '',
     },
     leaf2: {
       type: String,
-      default: require('@/assets/img/leaf2.png'),
+      default: '',
     },
     leaf1: {
       type: String,
-      default: require('@/assets/img/leaf1.png'),
+      default: '',
     },
     signup: {
       type: String,
-      default: require('@/assets/img/city.jpg'),
+      default: '',
     },
     landing: {
       type: String,
-      default: require('@/assets/img/landing.jpg'),
+      default: '',
     },
     profile: {
       type: String,
-      default: require('@/assets/img/profile.jpg'),
+      default: '',
     },
   },
   data() {
@@ -329,13 +329,21 @@ export default {
   },
   computed: {
     headerStyle() {
+      let result = '';
+
+      this.image != '' ? result = `url(${this.image})` : result = `url(${require('@/assets/img/vue-mk-header.jpg')})`;
+
       return {
-        backgroundImage: `url(${this.image})`,
+        backgroundImage: result,
       }
     },
     signupImage() {
+      let result = '';
+
+      this.signup != '' ? result = `url(${this.signup})` : result = `url(${require('@/assets/img/city.jpg')})`;
+
       return {
-        backgroundImage: `url(${this.signup})`,
+        backgroundImage: result,
       }
     },
   },

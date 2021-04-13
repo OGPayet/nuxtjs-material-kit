@@ -158,7 +158,7 @@
                                 class="profile-photo-small"
                                 data-toggle="dropdown"
                               >
-                                <img :src="img" alt="Circle Image" />
+                                <img :src="img != '' ? img : require('@/assets/img/faces/avatar.jpg')" alt="Circle Image" />
                               </div>
                               <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="dropdown-header">Dropdown header</li>
@@ -273,11 +273,11 @@ export default {
   props: {
     image: {
       type: String,
-      default: require('@/assets/img/bg.jpg'),
+      default: '',
     },
     img: {
       type: String,
-      default: require('@/assets/img/faces/avatar.jpg'),
+      default: '',
     },
   },
   data() {
@@ -297,8 +297,12 @@ export default {
   },
   computed: {
     bgImage() {
+      let result = '';
+
+      this.image != '' ? result = `url(${this.image})` : result = `url(${require('@/assets/img/bg.jpg')})`;
+
       return {
-        backgroundImage: `url(${this.image})`,
+        backgroundImage: result,
       }
     },
   },
