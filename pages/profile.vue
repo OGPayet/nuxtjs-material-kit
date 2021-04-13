@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax :style="headerStyle" class="section page-header header-filter" />
+    <parallax :style="header != '' ? `url(${header})` : `url(${require('@/assets/img/city-profile.jpg')})`" class="section page-header header-filter" />
     <div class="main main-raised">
       <div class="section profile-content">
         <div class="container">
@@ -115,17 +115,6 @@ export default {
     img: {
       type: String,
       default: '',
-    },
-  },
-  computed: {
-    headerStyle() {
-      let result = '';
-
-      this.header != '' ? result = `url(${this.header})` : result = `url(${require('@/assets/img/city-profile.jpg')})`;
-
-      return {
-        backgroundImage: result,
-      }
     },
   },
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div :style="headerStyle" class="section page-header header-filter">
+    <div :style="header != '' ? `url(${header})` : `url(${require('@/assets/img/profile_city.jpg')})`" class="section page-header header-filter">
       <div class="container">
         <div class="md-layout">
           <div
@@ -76,17 +76,6 @@ export default {
       email: null,
       password: null,
     }
-  },
-  computed: {
-    headerStyle() {
-      let result = '';
-
-      this.header != '' ? result = `url(${this.header})` : result = `url(${require('@/assets/img/profile_city.jpg')})`;
-      
-      return {
-        backgroundImage: result,
-      }
-    },
   },
 }
 </script>

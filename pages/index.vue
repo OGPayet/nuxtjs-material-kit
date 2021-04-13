@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax :style="headerStyle" class="section page-header header-filter">
+    <parallax :style="header != '' ? `url(${header})` : `url(${require('@/assets/img/bg7.jpg')})`" class="section page-header header-filter">
       <div class="container">
         <div class="md-layout">
           <div
@@ -306,17 +306,6 @@ export default {
       email: null,
       message: null,
     }
-  },
-  computed: {
-    headerStyle() {
-      let result = '';
-
-      this.header != '' ? result = `url(${this.header})` : result = `url(${require('@/assets/img/bg7.jpg')})`;
-
-      return {
-        backgroundImage: result,
-      }
-    },
   },
 }
 </script>

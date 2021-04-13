@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div id="navigation">
-      <div class="navigation-example" :style="bgImage">
+      <div class="navigation-example" :style="image != '' ? `url(${image})` : `url(${require('@/assets/img/bg.jpg')})`">
         <div class="md-layout">
           <div class="md-layout-item">
             <md-toolbar class="md-rose">
@@ -294,17 +294,6 @@ export default {
         'Kevin Malone',
       ],
     }
-  },
-  computed: {
-    bgImage() {
-      let result = '';
-
-      this.image != '' ? result = `url(${this.image})` : result = `url(${require('@/assets/img/bg.jpg')})`;
-
-      return {
-        backgroundImage: result,
-      }
-    },
   },
 }
 </script>
