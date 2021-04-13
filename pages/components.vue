@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax :style="image != '' ? `background: url(${image})` : `background: url(${require('@/assets/img/vue-mk-header.jpg')})`" class="page-header header-filter">
+    <Parallax :style="image != '' ? `background: url(${image})` : `background: url(${require('@/assets/img/vue-mk-header.jpg')})`" class="page-header header-filter">
       <div class="md-layout">
         <div class="md-layout-item">
           <div class="image-wrapper">
@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-    </parallax>
+    </Parallax>
     <div class="main main-raised">
       <div class="section section-basic">
         <div class="container">
@@ -269,7 +269,7 @@ import NavPills from '@/components/templates/NavPillsSection'
 import Notifications from '@/components/templates/NotificationsSection'
 import TypographyImages from '@/components/templates/TypographyImagesSection'
 import JavascriptComponents from '@/components/templates/JavascriptComponentsSection'
-import { LoginCard } from '@/components'
+import { LoginCard, Parallax } from '@/components'
 
 export default {
   name: 'Index',
@@ -283,6 +283,7 @@ export default {
     TypographyImages,
     JavascriptComponents,
     LoginCard,
+    Parallax,
   },
   bodyClass: 'index-page',
   props: {

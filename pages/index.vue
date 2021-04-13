@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax :style="header != '' ? `background: url(${header})` : `background: url(${require('@/assets/img/bg7.jpg')})`" class="section page-header header-filter">
+    <Parallax :style="header != '' ? `background: url(${header})` : `background: url(${require('@/assets/img/bg7.jpg')})`" class="section page-header header-filter">
       <div class="container">
         <div class="md-layout">
           <div
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-    </parallax>
+    </Parallax>
     <div class="main main-raised">
       <div class="section">
         <div class="container">
@@ -280,8 +280,13 @@
 </template>
 
 <script>
+import { Parallax } from '@/components'
+
 export default {
   bodyClass: 'LandingPage',
+  components: { 
+    Parallax,
+  },
   props: {
     header: {
       type: String,

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax :style="header != '' ? `background: url(${header})` : `background: url(${require('@/assets/img/city-profile.jpg')})`" class="section page-header header-filter" />
+    <Parallax :style="header != '' ? `background: url(${header})` : `background: url(${require('@/assets/img/city-profile.jpg')})`" class="section page-header header-filter" />
     <div class="main main-raised">
       <div class="section profile-content">
         <div class="container">
@@ -100,11 +100,12 @@
 </template>
 
 <script>
-import { Tabs } from '@/components'
+import { Tabs, Parallax } from '@/components'
 
 export default {
   components: {
     Tabs,
+    Parallax,
   },
   bodyClass: 'profile-page',
   props: {
