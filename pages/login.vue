@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div :style="header != '' ? `url(${header})` : `url(${require('@/assets/img/profile_city.jpg')})`" class="section page-header header-filter">
+    <div :style="header != '' ? `background: url(${header})` : `background: url(${require('@/assets/img/profile_city.jpg')})`" class="section page-header header-filter">
       <div class="container">
         <div class="md-layout">
           <div

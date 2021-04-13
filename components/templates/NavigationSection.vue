@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div id="navigation">
-      <div class="navigation-example" :style="image != '' ? `url(${image})` : `url(${require('@/assets/img/bg.jpg')})`">
+      <div class="navigation-example" :style="image != '' ? `background: url(${image})` : `background: url(${require('@/assets/img/bg.jpg')})`">
         <div class="md-layout">
           <div class="md-layout-item">
             <md-toolbar class="md-rose">

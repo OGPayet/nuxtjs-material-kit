@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax :style="image != '' ? `url(${image})` : `url(${require('@/assets/img/vue-mk-header.jpg')})`" class="page-header header-filter">
+    <parallax :style="image != '' ? `background: url(${image})` : `background: url(${require('@/assets/img/vue-mk-header.jpg')})`" class="page-header header-filter">
       <div class="md-layout">
         <div class="md-layout-item">
           <div class="image-wrapper">
@@ -76,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div :style="signup != '' ? `url(${signup})` : `url(${require('@/assets/img/city.jpg')})`" class="section section-signup page-header">
+      <div :style="signup != '' ? `background: url(${signup})` : `background: url(${require('@/assets/img/city.jpg')})`" class="section section-signup page-header">
         <div class="container">
           <div class="md-layout">
             <div

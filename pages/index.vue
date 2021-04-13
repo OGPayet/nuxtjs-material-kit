@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax :style="header != '' ? `url(${header})` : `url(${require('@/assets/img/bg7.jpg')})`" class="section page-header header-filter">
+    <parallax :style="header != '' ? `background: url(${header})` : `background: url(${require('@/assets/img/bg7.jpg')})`" class="section page-header header-filter">
       <div class="container">
         <div class="md-layout">
           <div
