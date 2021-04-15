@@ -45,10 +45,10 @@
                       </md-button>
                       <ul class="dropdown-menu dropdown-with-icons">
                         <li>
-                          <a href="#/">
+                          <NuxtLink to="/">
                             <i class="material-icons">layers</i>
                             <p>All Components</p>
-                          </a>
+                          </NuxtLink>
                         </li>
                         <li>
                           <a
@@ -99,22 +99,22 @@
                       </md-button>
                       <ul class="dropdown-menu dropdown-with-icons">
                         <li>
-                          <a href="#/landing">
+                          <NuxtLink to="/Landing">
                             <i class="material-icons">view_day</i>
                             <p>Landing Page</p>
-                          </a>
+                          </NuxtLink>
                         </li>
                         <li>
-                          <a href="#/login">
+                          <NuxtLink to="/Login">
                             <i class="material-icons">fingerprint</i>
                             <p>Login Page</p>
-                          </a>
+                          </NuxtLink>
                         </li>
                         <li>
-                          <a href="#/profile">
+                          <NuxtLink to="/Profile">
                             <i class="material-icons">account_circle</i>
                             <p>Profile Page</p>
-                          </a>
+                          </NuxtLink>
                         </li>
                       </ul>
                     </Dropdown>
