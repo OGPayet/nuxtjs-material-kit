@@ -11,10 +11,10 @@
 
 <script>
 export default {
-  name: 'NavTabsCard',
+  name: "nav-tabs-card",
   props: {
     noLabel: Boolean,
-    tabsPlain: Boolean,
-  },
-}
+    tabsPlain: Boolean
+  }
+};
 </script>

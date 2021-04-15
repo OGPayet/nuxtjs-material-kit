@@ -79,7 +79,9 @@
                 responsibility that I have, to push possibilities, to show
                 people, this is the level that things could be at.
               </p>
-              <small> Kanye West, Musician </small>
+              <small>
+                Kanye West, Musician
+              </small>
             </div>
           </div>
 
@@ -200,25 +202,25 @@ export default {
   data() {
     return {
       responsive: false,
-    }
-  },
-  mounted() {
-    this.onResponsiveInverted()
-    window.addEventListener('resize', this.onResponsiveInverted)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.onResponsiveInverted)
+    };
   },
   methods: {
     onResponsiveInverted() {
       if (window.innerWidth < 600) {
-        this.responsive = true
+        this.responsive = true;
       } else {
-        this.responsive = false
+        this.responsive = false;
       }
-    },
+    }
   },
-}
+  mounted() {
+    this.onResponsiveInverted();
+    window.addEventListener("resize", this.onResponsiveInverted);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResponsiveInverted);
+  }
+};
 </script>
 
 <style lang="css"></style>

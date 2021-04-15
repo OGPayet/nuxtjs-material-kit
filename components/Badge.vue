@@ -5,29 +5,29 @@
 </template>
 <script>
 export default {
-  name: 'Badge',
+  name: "badge",
   props: {
     tag: {
       type: String,
-      default: 'span',
+      default: "span"
     },
     type: {
       type: String,
-      default: 'default',
-      validator: (value) => {
+      default: "default",
+      validator: value => {
         let acceptedValues = [
-          'primary',
-          'info',
-          'success',
-          'warning',
-          'danger',
-          'rose',
-          'default',
-        ]
-        return acceptedValues.indexOf(value) !== -1
-      },
-    },
-  },
-}
+          "primary",
+          "info",
+          "success",
+          "warning",
+          "danger",
+          "rose",
+          "default"
+        ];
+        return acceptedValues.indexOf(value) !== -1;
+      }
+    }
+  }
+};
 </script>
 <style></style>

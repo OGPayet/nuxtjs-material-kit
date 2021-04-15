@@ -4,7 +4,7 @@
     :class="[
       { 'flex-column': flexColumn },
       { 'nav-pills-icons': navPillsIcons },
-      { 'md-card-plain': plain },
+      { 'md-card-plain': plain }
     ]"
   >
     <md-card-header slot="header-title"> </md-card-header>
@@ -13,12 +13,12 @@
       <md-list class="nav-tabs">
         <md-list-item
           v-for="(item, index) in tabName"
+          @click="switchPanel(tabName[index])"
           :key="item"
           :class="[
             { active: isActivePanel(tabName[index]) },
-            { [getColorButton(colorButton)]: isActivePanel(tabName[index]) },
+            { [getColorButton(colorButton)]: isActivePanel(tabName[index]) }
           ]"
-          @click="switchPanel(tabName[index])"
         >
           {{ tabName[index] }}
           <md-icon v-if="navPillsIcons">{{ tabIcon[index] }}</md-icon>
@@ -28,14 +28,11 @@
       <transition name="fade" mode="out-in">
         <div class="tab-content">
           <div
+            :class="getTabContent(index + 1)"
             v-for="(item, index) in tabName"
             :key="item"
-            :class="getTabContent(index + 1)"
           >
-            <slot
-              v-if="isActivePanel(tabName[index])"
-              :name="getTabContent(index + 1)"
-            >
+            <slot v-if="isActivePanel(tabName[index])" :name="getTabContent(index + 1)">
               This is the default text!
             </slot>
           </div>
@@ -51,39 +48,33 @@ export default {
     flexColumn: Boolean,
     navPillsIcons: Boolean,
     plain: Boolean,
-    tabName: {
-      type: Array,
-      default: () => [],
-    },
-    tabIcon: {
-      type: Array,
-      default: () => [],
-    },
+    tabName: Array,
+    tabIcon: Array,
     colorButton: {
       type: String,
-      default: '',
-    },
+      default: ""
+    }
   },
   data() {
     return {
-      activePanel: this.tabName[0],
-    }
+      activePanel: this.tabName[0]
+    };
   },
   methods: {
     switchPanel(panel) {
-      this.activePanel = panel
+      this.activePanel = panel;
     },
     isActivePanel(panel) {
-      return this.activePanel == panel
+      return this.activePanel == panel;
     },
-    getColorButton: function (colorButton) {
-      return 'md-' + colorButton + ''
+    getColorButton: function(colorButton) {
+      return "md-" + colorButton + "";
     },
-    getTabContent: function (index) {
-      return 'tab-pane-' + index + ''
-    },
-  },
-}
+    getTabContent: function(index) {
+      return "tab-pane-" + index + "";
+    }
+  }
+};
 </script>
 
 <style lang="css"></style>

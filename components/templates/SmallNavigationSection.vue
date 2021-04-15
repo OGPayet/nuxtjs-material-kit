@@ -25,7 +25,7 @@
                       class="md-list-item-router md-list-item-container md-button-clean dropdown"
                     >
                       <div class="md-list-item-content">
-                        <drop-down direction="down">
+                        <Dropdown direction="down">
                           <md-button
                             slot="title"
                             class="md-button md-button-link md-white md-simple dropdown-toggle"
@@ -64,7 +64,7 @@
                               >
                             </li>
                           </ul>
-                        </drop-down>
+                        </Dropdown>
                       </div>
                     </a>
                   </li>
@@ -118,7 +118,7 @@
                         class="md-list-item-router md-list-item-container md-button-clean dropdown"
                       >
                         <div class="md-list-item-content">
-                          <drop-down direction="down">
+                          <Dropdown direction="down">
                             <md-button
                               slot="title"
                               class="md-button md-button-link md-white md-simple md-just-icon"
@@ -156,7 +156,7 @@
                                 >
                               </li>
                             </ul>
-                          </drop-down>
+                          </Dropdown>
                         </div>
                       </a>
                     </li>
@@ -176,29 +176,32 @@
 </template>
 
 <script>
+import Dropdown from "@/components/Dropdown.vue"; 
+
 export default {
+  components: { Dropdown },
   data() {
     return {
-      responsive: false,
-    }
-  },
-  mounted() {
-    this.onResponsiveInverted()
-    window.addEventListener('resize', this.onResponsiveInverted)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.onResponsiveInverted)
+      responsive: false
+    };
   },
   methods: {
     onResponsiveInverted() {
       if (window.innerWidth < 500) {
-        this.responsive = true
+        this.responsive = true;
       } else {
-        this.responsive = false
+        this.responsive = false;
       }
-    },
+    }
   },
-}
+  mounted() {
+    this.onResponsiveInverted();
+    window.addEventListener("resize", this.onResponsiveInverted);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResponsiveInverted);
+  }
+};
 </script>
 
 <style lang="css"></style>

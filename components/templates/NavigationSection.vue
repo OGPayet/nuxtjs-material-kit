@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div id="navigation">
-      <div class="navigation-example" :style="image != '' ? `background: url(${image})` : `background: url(${require('@/assets/img/bg.jpg')})`">
+      <div class="navigation-example" :style="image != '' ? `background-image: url(${image})` : `background-image: url(${require('@/assets/img/bg.jpg')})`">
         <div class="md-layout">
           <div class="md-layout-item">
             <md-toolbar class="md-rose">
@@ -30,8 +30,8 @@
                   <div class="md-collapse">
                     <div class="md-autocomplete">
                       <md-autocomplete
-                        v-model="selectedEmployee"
                         class="search has-white"
+                        v-model="selectedEmployee"
                         :md-options="employees"
                         :md-open-on-focus="false"
                       >
@@ -152,13 +152,13 @@
                           class="md-list-item-router md-list-item-container md-button-clean dropdown"
                         >
                           <div class="md-list-item-content">
-                            <drop-down direction="down" class="profile-photo">
+                            <Dropdown direction="down" class="profile-photo">
                               <div
-                                slot="title"
                                 class="profile-photo-small"
+                                slot="title"
                                 data-toggle="dropdown"
                               >
-                                <img :src="img != '' ? img : require('@/assets/img/faces/avatar.jpg')" alt="Circle Image" />
+                                <img :src="require('@/assets/img/faces/avatar.jpg')" alt="Circle Image" />
                               </div>
                               <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="dropdown-header">Dropdown header</li>
@@ -176,7 +176,7 @@
                                   >
                                 </li>
                               </ul>
-                            </drop-down>
+                            </Dropdown>
                           </div>
                         </a>
                       </li>
@@ -269,7 +269,25 @@
 </template>
 
 <script>
+import Dropdown from "@/components/Dropdown.vue"; 
+
 export default {
+  components: { Dropdown },
+  data() {
+    return {
+      selectedEmployee: "",
+      employees: [
+        "Jim Halpert",
+        "Dwight Schrute",
+        "Michael Scott",
+        "Pam Beesly",
+        "Angela Martin",
+        "Kelly Kapoor",
+        "Ryan Howard",
+        "Kevin Malone"
+      ]
+    };
+  },
   props: {
     image: {
       type: String,
@@ -278,24 +296,9 @@ export default {
     img: {
       type: String,
       default: '',
-    },
-  },
-  data() {
-    return {
-      selectedEmployee: '',
-      employees: [
-        'Jim Halpert',
-        'Dwight Schrute',
-        'Michael Scott',
-        'Pam Beesly',
-        'Angela Martin',
-        'Kelly Kapoor',
-        'Ryan Howard',
-        'Kevin Malone',
-      ],
     }
   },
-}
+};
 </script>
 
 <style lang="css"></style>

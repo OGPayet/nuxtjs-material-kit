@@ -197,11 +197,11 @@
           <div class="title">
             <h3>Pagination</h3>
           </div>
-          <pagination v-model="defaultPagination" no-arrows :page-count="5">
+          <pagination no-arrows v-model="defaultPagination" :page-count="5">
           </pagination>
           <pagination
-            v-model="infoPagination"
             class="pagination-info"
+            v-model="infoPagination"
             with-text
             :page-count="5"
           >
@@ -244,15 +244,15 @@
 </template>
 
 <script>
-import { Pagination } from '@/components'
-import { Slider } from '@/components'
-import { Badge } from '@/components'
+import { Pagination } from "@/components";
+import { Slider } from "@/components";
+import { Badge } from "@/components";
 
 export default {
   components: {
     Pagination,
     Slider,
-    Badge,
+    Badge
   },
   data() {
     return {
@@ -277,11 +277,11 @@ export default {
       buffer: 40,
       sliders: {
         simple: 40,
-        rangeSlider: [20, 60],
-      },
-    }
-  },
-}
+        rangeSlider: [20, 60]
+      }
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>

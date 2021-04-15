@@ -1,5 +1,6 @@
 <template>
   <md-toolbar
+    ref="toolbar"
     id="toolbar"
     md-elevation="0"
     class="md-transparent md-absolute"
@@ -27,13 +28,13 @@
               <!-- Here you can add your items from the section-start of your toolbar -->
             </mobile-menu>
             <md-list>
-              <li v-if="!showDownload" class="md-list-item">
+              <li class="md-list-item" v-if="!showDownload">
                 <a
                   href="javascript:void(0)"
                   class="md-list-item-router md-list-item-container md-button-clean dropdown"
                 >
                   <div class="md-list-item-content">
-                    <drop-down direction="down">
+                    <Dropdown direction="down">
                       <md-button
                         slot="title"
                         class="md-button md-button-link md-white md-simple dropdown-toggle"
@@ -58,36 +59,36 @@
                           </a>
                         </li>
                       </ul>
-                    </drop-down>
+                    </Dropdown>
                   </div>
                 </a>
               </li>
 
               <md-list-item
-                v-if="showDownload"
                 href="https://demos.creative-tim.com/vue-material-kit/documentation/"
                 target="_blank"
+                v-if="showDownload"
               >
                 <i class="material-icons">content_paste</i>
                 <p>Documentation</p>
               </md-list-item>
 
               <md-list-item
-                v-if="showDownload"
                 href="javascript:void(0)"
                 @click="scrollToElement()"
+                v-if="showDownload"
               >
                 <i class="material-icons">cloud_download</i>
                 <p>Download</p>
               </md-list-item>
 
-              <li v-else class="md-list-item">
+              <li class="md-list-item" v-else>
                 <a
                   href="javascript:void(0)"
                   class="md-list-item-router md-list-item-container md-button-clean dropdown"
                 >
                   <div class="md-list-item-content">
-                    <drop-down direction="down">
+                    <Dropdown direction="down">
                       <md-button
                         slot="title"
                         class="md-button md-button-link md-white md-simple dropdown-toggle"
@@ -116,7 +117,7 @@
                           </a>
                         </li>
                       </ul>
-                    </drop-down>
+                    </Dropdown>
                   </div>
                 </a>
               </li>
@@ -160,109 +161,113 @@
 </template>
 
 <script>
-let resizeTimeout
+import Dropdown from "@/components/Dropdown.vue"; 
+
+let resizeTimeout;
 function resizeThrottler(actualResizeHandler) {
   // ignore resize events as long as an actualResizeHandler execution is in the queue
   if (!resizeTimeout) {
     resizeTimeout = setTimeout(() => {
-      resizeTimeout = null
-      actualResizeHandler()
+      resizeTimeout = null;
+      actualResizeHandler();
 
       // The actualResizeHandler will execute at a rate of 15fps
-    }, 66)
+    }, 66);
   }
 }
 
-import MobileMenu from './MobileMenu.vue'
+import MobileMenu from "./MobileMenu";
 
 export default {
   components: {
     MobileMenu,
+    Dropdown
   },
   props: {
     type: {
       type: String,
-      default: 'white',
+      default: "white",
       validator(value) {
         return [
-          'white',
-          'default',
-          'primary',
-          'danger',
-          'success',
-          'warning',
-          'info',
-        ].includes(value)
-      },
+          "white",
+          "default",
+          "primary",
+          "danger",
+          "success",
+          "warning",
+          "info"
+        ].includes(value);
+      }
     },
     colorOnScroll: {
       type: Number,
-      default: 0,
-    },
+      default: 400
+    }
   },
   data() {
     return {
-      extraNavClasses: '',
-      toggledClass: false,
-    }
+      extraNavClasses: "",
+      toggledClass: false
+    };
   },
   computed: {
     showDownload() {
-      const excludedRoutes = ['login', 'landing', 'profile']
-      return excludedRoutes.every((r) => r !== this.$route.name)
-    },
-  },
-  mounted() {
-    document.addEventListener('scroll', this.scrollListener)
-  },
-  beforeDestroy() {
-    document.removeEventListener('scroll', this.scrollListener)
+      const excludedRoutes = ["login", "landing", "profile"];
+      return excludedRoutes.every(r => r !== this.$route.name);
+    }
   },
   methods: {
     bodyClick() {
-      let bodyClick = document.getElementById('bodyClick')
+      let bodyClick = document.getElementById("bodyClick");
 
       if (bodyClick === null) {
-        let body = document.querySelector('body')
-        let elem = document.createElement('div')
-        elem.setAttribute('id', 'bodyClick')
-        body.appendChild(elem)
+        let body = document.querySelector("body");
+        let elem = document.createElement("div");
+        elem.setAttribute("id", "bodyClick");
+        body.appendChild(elem);
 
-        let bodyClick = document.getElementById('bodyClick')
-        bodyClick.addEventListener('click', this.toggleNavbarMobile)
+        let bodyClick = document.getElementById("bodyClick");
+        bodyClick.addEventListener("click", this.toggleNavbarMobile);
       } else {
-        bodyClick.remove()
+        bodyClick.remove();
       }
     },
     toggleNavbarMobile() {
-      this.NavbarStore.showNavbar = !this.NavbarStore.showNavbar
-      this.toggledClass = !this.toggledClass
-      this.bodyClick()
+      this.NavbarStore.showNavbar = !this.NavbarStore.showNavbar;
+      this.toggledClass = !this.toggledClass;
+      this.bodyClick();
     },
     handleScroll() {
       let scrollValue =
-        document.body.scrollTop || document.documentElement.scrollTop
-      let navbarColor = document.getElementById('toolbar')
-      this.currentScrollValue = scrollValue
+        document.body.scrollTop || document.documentElement.scrollTop;
+      //let navbarColor = document.getElementById("toolbar");
+      let navbarColor = this.$refs.toolbar;
+      this.currentScrollValue = scrollValue;
       if (this.colorOnScroll > 0 && scrollValue > this.colorOnScroll) {
-        this.extraNavClasses = `md-${this.type}`
-        navbarColor.classList.remove('md-transparent')
+        this.extraNavClasses = `md-${this.type}`;
+        navbarColor.$el.classList.remove("md-transparent");
       } else {
         if (this.extraNavClasses) {
-          this.extraNavClasses = ''
-          navbarColor.classList.add('md-transparent')
+          this.extraNavClasses = "";
+          navbarColor.$el.classList.add("md-transparent");
         }
       }
     },
     scrollListener() {
-      resizeThrottler(this.handleScroll)
+      resizeThrottler(this.handleScroll);
     },
     scrollToElement() {
-      let element_id = document.getElementById('downloadSection')
+      let element_id = document.getElementById("downloadSection");
       if (element_id) {
-        element_id.scrollIntoView({ block: 'end', behavior: 'smooth' })
+        element_id.scrollIntoView({ block: "end", behavior: "smooth" });
       }
-    },
+    }
   },
-}
+  mounted() {
+    document.addEventListener("scroll", this.scrollListener);
+  },
+  beforeDestroy() {
+    document.removeEventListener("scroll", this.scrollListener);
+  }
+};
 </script>

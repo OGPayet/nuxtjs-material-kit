@@ -1,12 +1,12 @@
 <template>
   <div
-    v-click-outside="closeDropDown"
     :class="[
       { open: isOpen },
       { dropdown: direction === 'down' },
-      { dropup: direction === 'up' },
+      { dropup: direction === 'up' }
     ]"
     @click="toggleDropDown"
+    v-click-outside="closeDropDown"
   >
     <slot name="title">
       <a
@@ -23,41 +23,35 @@
 </template>
 <script>
 export default {
-  name: 'DropDown',
+  name: "Dropdown",
   props: {
     direction: {
       type: String,
-      default: 'down',
+      default: "down"
     },
     multiLevel: {
       type: Boolean,
-      default: false,
+      default: false
     },
-    title: {
-      type: String,
-      default: '',
-    },
-    icon: {
-      type: String,
-      default: '',
-    },
+    title: String,
+    icon: String
   },
   data() {
     return {
-      isOpen: false,
-    }
+      isOpen: false
+    };
   },
   methods: {
     toggleDropDown() {
       if (this.multiLevel) {
-        this.isOpen = true
+        this.isOpen = true;
       } else {
-        this.isOpen = !this.isOpen
+        this.isOpen = !this.isOpen;
       }
     },
     closeDropDown() {
-      this.isOpen = false
-    },
-  },
-}
+      this.isOpen = false;
+    }
+  }
+};
 </script>

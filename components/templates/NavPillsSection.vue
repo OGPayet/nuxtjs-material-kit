@@ -75,13 +75,13 @@
 </template>
 
 <script>
-import { Tabs } from '@/components'
+import { Tabs } from "@/components";
 
 export default {
   components: {
-    Tabs,
-  },
-}
+    Tabs
+  }
+};
 </script>
 
 <style lang="css"></style>

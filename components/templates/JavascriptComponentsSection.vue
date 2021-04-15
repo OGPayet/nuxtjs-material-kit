@@ -59,9 +59,11 @@
               <div class="title">
                 <h3>DatePicker</h3>
               </div>
-              <md-datepicker v-model="selectedDate">
-                <label>Select date</label>
-              </md-datepicker>
+              <no-ssr>
+                <md-datepicker v-model="selectedDate">
+                  <label>Select date</label>
+                </md-datepicker>
+              </no-ssr>
             </div>
           </div>
         </div>
@@ -114,7 +116,7 @@
               </v-popover>
             </div>
           </div>
-          <div id="tooltips" class="md-layout">
+          <div class="md-layout" id="tooltips">
             <div class="md-layout-item">
               <div class="title">
                 <h3>Tooltips</h3>
@@ -156,9 +158,9 @@
               autoplay
               :autoplay-timeout="5000"
               :mouse-drag="false"
-              navigation-enabled
-              navigation-next-label="<i class='material-icons'>keyboard_arrow_right</i>"
-              navigation-prev-label="<i class='material-icons'>keyboard_arrow_left</i>"
+              navigationEnabled
+              navigationNextLabel="<i class='material-icons'>keyboard_arrow_right</i>"
+              navigationPrevLabel="<i class='material-icons'>keyboard_arrow_left</i>"
             >
               <slide>
                 <div class="carousel-caption">
@@ -196,21 +198,21 @@
 </template>
 
 <script>
-import { Modal } from '@/components'
+import { Modal } from "@/components";
 export default {
   components: {
-    Modal,
+    Modal
   },
   data() {
     return {
       classicModal: false,
-      selectedDate: new Date('2018/03/26'),
-    }
+      selectedDate: new Date("2018/03/26"),
+    };
   },
   methods: {
     classicModalHide() {
-      this.classicModal = false
-    },
-  },
-}
+      this.classicModal = false;
+    }
+  }
+};
 </script>

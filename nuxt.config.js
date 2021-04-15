@@ -51,21 +51,21 @@ module.exports = {
    */
   css: [
     'vue-material/dist/vue-material.min.css',
-    '~/assets/scss/material-kit.scss',
-    '~/assets/demo.css'
+    '@/assets/demo.css',
+    '@/assets/scss/material-kit.scss'
   ],
 
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/vue-material',
-    '~/plugins/vue-lazyload',
+    '@/plugins/vue-material',
+    '@/plugins/vue-lazyload',
     {
-      src: '~plugins/vue-carousel',
+      src: '@plugins/vue-carousel',
       ssr: false
     },
-    '~/plugins/globals'
+    '@/plugins/globals'
   ],
 
   /*

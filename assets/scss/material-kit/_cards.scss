@@ -17,10 +17,6 @@
         }
     }
 
-    .md-subhead{
-      font-size: 17px;
-    }
-
     .title{
         margin-top: 0;
         margin-bottom: 5px;
@@ -64,11 +60,11 @@
     }
 
     .md-card-header{
-        //@include shadow-big();
-        margin: -40px  20px 0px; // default: margin: -40px  20px $margin-base;
+        @include shadow-big();
+        margin: -40px  20px $margin-base;
         border-radius: $border-radius-base;
         padding: $padding-base + 5 0;
-        //background-color: $gray-color;
+        background-color: $gray-color;
 
         .title,
         .card-title{
@@ -134,7 +130,7 @@
     .md-card-actions{
         margin: 0 20px 10px;
         padding: 10px 0 0 0;
-        //border-top: 1px solid #eeeeee;
+        border-top: 1px solid #eeeeee;
 
         .content{
             display: block;

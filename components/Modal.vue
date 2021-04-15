@@ -2,7 +2,7 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div v-click-outside="closeModal" class="modal-container">
+        <div class="modal-container" v-click-outside="closeModal">
           <div class="modal-header">
             <slot name="header"></slot>
           </div>
@@ -22,13 +22,13 @@
 
 <script>
 export default {
-  name: 'Modal',
+  name: "modal",
   methods: {
-    closeModal: function () {
-      this.$emit('close')
-    },
-  },
-}
+    closeModal: function() {
+      this.$emit("close");
+    }
+  }
+};
 </script>
 
 <style lang="scss">
