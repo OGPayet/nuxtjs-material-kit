@@ -1,9 +1,6 @@
 <template>
   <div class="wrapper">
-    <parallax
-      class="section page-header header-filter"
-      :style="header != '' ? `background-image: url(${header})` : `background-image: url(${require('@/assets/img/city-profile.jpg')})`"
-    ></parallax>
+    <Parallax :style="header != '' ? `background: url(${header})` : `background: url(${require('@/assets/img/city-profile.jpg')})`" class="section page-header header-filter" />
     <div class="main main-raised">
       <div class="section profile-content">
         <div class="container">
@@ -23,18 +20,18 @@
                   <md-button
                     href="javascript:void(0)"
                     class="md-just-icon md-simple md-dribbble"
-                    ><i class="fab fa-dribbble"></i
-                  ></md-button>
+                    ><i class="fab fa-dribbble"
+                  /></md-button>
                   <md-button
                     href="javascript:void(0)"
                     class="md-just-icon md-simple md-twitter"
-                    ><i class="fab fa-twitter"></i
-                  ></md-button>
+                    ><i class="fab fa-twitter"
+                  /></md-button>
                   <md-button
                     href="javascript:void(0)"
                     class="md-just-icon md-simple md-pinterest"
-                    ><i class="fab fa-pinterest"></i
-                  ></md-button>
+                    ><i class="fab fa-pinterest"
+                  /></md-button>
                 </div>
               </div>
             </div>
@@ -103,12 +100,14 @@
 </template>
 
 <script>
-import { Tabs } from "@/components";
+import { Tabs, Parallax } from '@/components'
+
 export default {
   components: {
-    Tabs
+    Tabs,
+    Parallax,
   },
-  bodyClass: "profile-page",
+  bodyClass: 'profile-page',
   props: {
     header: {
       type: String,
@@ -117,9 +116,9 @@ export default {
     img: {
       type: String,
       default: '',
-    }
+    },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -127,12 +126,12 @@ export default {
   padding: 0;
 }
 
-.profile-tabs::v-deep {
+.profile-tabs /deep/ {
   .md-card-tabs .md-list {
     justify-content: center;
   }
 
-  [class*="tab-pane-"] {
+  [class*='tab-pane-'] {
     margin-top: 3.213rem;
     padding-bottom: 50px;
 

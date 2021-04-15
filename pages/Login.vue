@@ -6,7 +6,7 @@
           <div
             class="md-layout-item md-size-33 md-small-size-66 md-xsmall-size-100 md-medium-size-40 mx-auto"
           >
-            <login-card header-color="green">
+            <LoginCard header-color="green">
               <h4 slot="title" class="card-title">Login</h4>
               <md-button
                 slot="buttons"
@@ -48,7 +48,7 @@
               <md-button slot="footer" class="md-simple md-success md-lg">
                 Get Started
               </md-button>
-            </login-card>
+            </LoginCard>
           </div>
         </div>
       </div>

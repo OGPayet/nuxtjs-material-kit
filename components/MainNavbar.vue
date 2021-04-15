@@ -212,7 +212,7 @@ export default {
   },
   computed: {
     showDownload() {
-      const excludedRoutes = ["login", "landing", "profile"];
+      const excludedRoutes = ["Login", "Landing", "Profile"];
       return excludedRoutes.every(r => r !== this.$route.name);
     }
   },
