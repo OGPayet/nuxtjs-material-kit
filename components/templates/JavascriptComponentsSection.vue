@@ -59,11 +59,11 @@
               <div class="title">
                 <h3>DatePicker</h3>
               </div>
-              <no-ssr>
+              <client-only>
                 <md-datepicker v-model="selectedDate">
                   <label>Select date</label>
                 </md-datepicker>
-              </no-ssr>
+              </client-only>
             </div>
           </div>
         </div>
