@@ -1,7 +1,7 @@
 <template>
   <md-list
     class="nav-mobile-menu nav-mobile-section-start"
-    v-if="navMobileSectionStart === 'true'"
+    v-if="navMobileSectionStart"
   >
     <slot></slot>
   </md-list>
@@ -9,11 +9,11 @@
 
 <script>
 export default {
-  name: "mobile-menu",
+  name: "MobileMenu",
   props: {
     navMobileSectionStart: {
-      type: String,
-      default: "false"
+      type: Boolean,
+      default: false
     }
   }
 };

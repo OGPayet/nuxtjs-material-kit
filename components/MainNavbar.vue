@@ -24,9 +24,9 @@
 
         <div class="md-collapse">
           <div class="md-collapse-wrapper">
-            <mobile-menu nav-mobile-section-start="false">
+            <MobileMenu :nav-mobile-section-start="showMobileNavbar">
               <!-- Here you can add your items from the section-start of your toolbar -->
-            </mobile-menu>
+            </MobileMenu>
             <md-list>
               <li class="md-list-item" v-if="!showDownload">
                 <a
@@ -207,7 +207,8 @@ export default {
   data() {
     return {
       extraNavClasses: "",
-      toggledClass: false
+      toggledClass: false,
+      showMobileNavbar: false,
     };
   },
   computed: {
@@ -233,7 +234,8 @@ export default {
       }
     },
     toggleNavbarMobile() {
-      this.NavbarStore.showNavbar = !this.NavbarStore.showNavbar;
+      this.showMobileNavbar = !this.showMobileNavbar;
+      this.$store.commit('toggleNavbar', this.showMobileNavbar);
       this.toggledClass = !this.toggledClass;
       this.bodyClick();
     },
