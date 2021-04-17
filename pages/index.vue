@@ -9,8 +9,8 @@
             <img :src="require('@/assets/img/leaf2.png')" alt="leaf2" class="leaf2" v-show="leafShow" />
             <img :src="require('@/assets/img/leaf1.png')" alt="leaf1" class="leaf1" v-show="leafShow" />
             <div class="brand">
-              <h1>Vue Material Kit</h1>
-              <h3>A Badass Vue.js UI Kit made with Material Design.</h3>
+              <h1>Nuxt Material Kit</h1>
+              <h3>A Badass Nuxt.js UI Kit made with Material Design.</h3>
             </div>
           </div>
         </div>
